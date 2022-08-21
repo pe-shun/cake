@@ -1,27 +1,46 @@
-<div class="col-md-8 offset-md-1">
-  <!--長さは後で調整８→４とか？-->
-　<h2>ジャンル検索</h2>
-  　<table class="table table-hover table-inverse">
-    　<thead>
-    　  <th></th>
-    　</thead>
+<main>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="row">
+        <tbody>ようこそながcakeへ！</tbody>
+        <tbody>このサイトはケーキ販売のECサイトになります。</tbody>
+        <tbody>会員出ない方も商品の閲覧はできますが、</tbody>
+        <tbody>購入には会員登録が必要になります。</tbody>
+      </div>
+      <div class="row">
+        <tbody>新着商品</tbody>
+      </div>
+    </div>
 
-  　<tbody>
-      <tr>
-      　<th>ケーキ</th>
-        <td><%=　item.name %></td>
-      </tr>
-      <tr>
-        <th>焼き菓子</th>
-        <td><%= item.name %></td>
-      </tr>
-      <tr>
-        <th>プリン</th>
-        <td><%= item.name %></td>
-      </tr>
-      <tr>
-        <th>キャンディー</th>
-        <td><%= item.name %></td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="col-md-8 offset-md-1">
+      <!--長さは後で調整８→４とか？-->
+    　<h2>ジャンル検索</h2>
+      　<table class="table table-hover table-inverse">
+        　<thead>
+        　  <th></th>
+        　</thead>
+
+      　<tbody>
+          <tr>
+          　<th>ケーキ</th>
+            <td><%=　item.name %></td>
+          </tr>
+          <tr>
+            <th>焼き菓子</th>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <th>プリン</th>
+            <td><%= item.name %></td>
+          </tr>
+          <tr>
+            <th>キャンディー</th>
+            <td><%= item.name %></td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+  </div>
+ </div>
+</main>
