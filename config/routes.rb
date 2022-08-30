@@ -3,6 +3,27 @@ root to: "public/homes#top"
 
 get "home/about" => "homes#about" ,as: 'about'
 
+resource:public
+resource:admin
+
+scope module: :public do
+  resources:addresses
+  resources:customers
+  resources:cart_items
+  resources:orders
+  get "orders/complete" => "orders#complete"
+  get "custemers/unsubscribe" => "custemers#unsubscribe"
+  patch "custemers/withdraw" => "custemers#withdraw"
+  delete "cart_items/destroy_all" => "cart_items#destroy_all"
+  post "orders/comfirm" => "orders#comfirm"
+end
+
+namespace :admin do
+  resources:items
+  resources:genres
+  resources:customers
+end
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
