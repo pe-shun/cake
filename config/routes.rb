@@ -7,6 +7,7 @@ resource:public
 resource:admin
 
 scope module: :public do
+  resources:items
   resources:addresses
   resources:customers
   resources:cart_items
