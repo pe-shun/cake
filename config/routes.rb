@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 root to: "public/homes#top"
 
-get "home/about" => "homes#about" ,as: 'about'
+get "home/about" => "home#about" ,as: 'about'
 
 resource:public
 resource:admin
