@@ -1,39 +1,20 @@
 class Public::ItemsController < ApplicationController
 
-    def index
-     @item = Item.new
-     @items = Items.all
-     @user = current_user
-    end
+ def index
+  @item = Item.new
+  @items = Items.all
+  @user = current_user
+ end
 
-    def edit
-    end
+ def show
+  @item = Item.find(params[:id])
+  @items = Item.all
+  @newitem = Item.new
+ end
 
-    def create
-     @itmes = itmes.new(book_params)
-     @itmes.user_id = current_user.id
-      if @items.save
-       redirect_to book_path(@items.id)
-      else
-     @items = current_user
-     @items = Items.all
-       render :index
-      end
-    end
-
-    def update
-      @items = Items.find(params[:id])
-        if @items.update(items_params)
-         redirect_to items_path
-        else
-         render :edit_item
-        end
-    end
-
-  private
+private
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+      params.require(:cart_item).permit(:quantity, :item_id, :customer_id, :amount)
   end
 
 end
-
