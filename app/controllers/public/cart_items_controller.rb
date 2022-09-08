@@ -1,24 +1,31 @@
 class Public::CartItemsController < ApplicationController
 
+   def index
+   end
+
+   def destroy
+   end
+
+
    def create
-     @itmes = Itmes.new(book_params)
-     @itmes.customer_id = current_customer.id
-     @items = current_customer.items.all
-     @items.each do |item|
-        if item.item_id==@item.item_id
-        new_quantity = item.quantity + @item.quantity
-        item.update_attribute(:quantity, new_quantity)
-        @item.delete
+     @cart_itmes = Itmes.new(book_params)
+     @cart_itmes.customer_id = current_customer.id
+     @cart_items = current_customer.items.all
+     @cart_items.each do |item|
+        if cart_item.item_id==@cart_item.item_id
+        new_quantity = cart_item.quantity + @cart_item.quantity
+        cart_item.update_attribute(:quantity, new_quantity)
+        @cart_item.delete
         end
        end
 
-       @item.save
+       @cart_item.save
        redirect_to items_path,notice:"カートに商品が入りました"
    end
 
    def update
-      @items = Items.find(params[:id])
-        if @items.update(items_params)
+      @cart_items = cart_Items.find(params[:id])
+        if @cart_items.update(cart_items_params)
          redirect_to items_path
         else
          render :edit_item
