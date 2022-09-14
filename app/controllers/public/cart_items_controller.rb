@@ -1,9 +1,23 @@
 class Public::CartItemsController < ApplicationController
 
+   before_action :correct_customer_destroy_all, only: :destroy_all
+
    def index
+    @cart_items = Cart_items.new
+    @cart_items = Cart_items.all
+    @customer = current_customer
    end
 
    def destroy
+    @cart_items = Cart_items.find(params[:id])
+    @cart_items.destroy
+    redirect_to items_path
+   end
+
+   def destroy_all
+    @tasks.destroy_all
+     flash[:danger] = "全て削除しました!"
+    redirect_to request.referrer || items_path
    end
 
 
@@ -35,6 +49,11 @@ class Public::CartItemsController < ApplicationController
  private
    def cart_item_params
       params.require(:cart_item).permit(:quantity, :item_id, :customer_id, :amount)
+   end
+
+   def correct_customer_destroy_all
+    @tasks = current_customer.tasks
+    redirect_to root_url if @tasks.nil?
    end
 
 end
